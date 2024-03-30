@@ -7,7 +7,7 @@
 // 定数
 const K = 1.1;           // ばね定数
 const L = 20;            // ばねの半分の長さ
-const DT = 0.1;          // シミュレーションの時間の粒度
+const DT = 0.07;          // シミュレーションの時間の粒度
 const N = 31;            // I系の球の数
 const M = 29;            // II系内のI系の数
 const RADIUS = 10;       // 球の重さ
