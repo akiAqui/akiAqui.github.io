@@ -15,7 +15,7 @@ const SPRING_WIDTH = 0;  // バネ描画時の線の太さ
 const INITIAL_DX = 20;   // 球の初期位置の変位
 const VX = 0;            // 球の初期速度
 const AX = 0;            // 球の初期加速度
-const LEFT_GAP = RADIUS * 0.5;   // 左側の余白
+const LEFT_GAP = 0;   // 左側の余白
 const COLORED = true;   // 色をつけるかどうか
 const ADD_RANDOM = false;
 
@@ -131,7 +131,7 @@ function setup() {
     let MASS_COLOR = color(255, 0, 0);   // 球の色 関数内部に定義しないとエラーが出る
     let WHITE_COLOR = color(255, 255, 255);  // 白色　関数内部に定義しないとエラーが出る
    
-    createCanvas(1800, 900);
+    createCanvas(1000, 900);
     textSize(16);
     textFont('Open Sans', 16);
     textStyle(NORMAL);
