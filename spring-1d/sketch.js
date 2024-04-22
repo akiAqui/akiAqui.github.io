@@ -130,8 +130,11 @@ function execRandomness() {
 function setup() {
     let MASS_COLOR = color(255, 0, 0);   // 球の色 関数内部に定義しないとエラーが出る
     let WHITE_COLOR = color(255, 255, 255);  // 白色　関数内部に定義しないとエラーが出る
-   
-    createCanvas(1800, 900);
+    const w=window.innerWidth-30;
+    const h=window.innerHeight-50;
+    console.log("width=",w);
+    console.log("height=",h);
+    createCanvas(w,h);
     textSize(16);
     textFont('Open Sans', 16);
     textStyle(NORMAL);
