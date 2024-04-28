@@ -38,6 +38,24 @@
     }
 
 
+    document.getElementById('startButton').addEventListener('click', async () => {
+	console.log('Starting Csound...');
+	try {
+            await start();
+            console.log('Csound has started.');
+	} catch (error) {
+            console.error('Error starting Csound:', error);
+	}
+    });
+
+
+
+
+
+
+    
+
+
     
     
   </script>
