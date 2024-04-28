@@ -4,12 +4,11 @@
   </head>
   
   <script type="text/javascript">
-    const csoundjs = "../js/csound.js";  // csound.js is the Csound WASM module
-    let csound = null;                   // csound is the Csound engine object (null as we start)
-    let isOn = false; // instrument on/off state
-    
-    const csd = './drip.csd' // CSD file name
+    let csound = null;                   // Csound engine object (null as we start)    
     async function start() {
+	const csoundjs = "../js/csound.js";  // csound.js is the Csound WASM module
+	let isOn = false; // instrument on/off state
+	const csd = './drip.csd' // CSD file name
 	if(csound == null) {
 	    const { Csound } = await import(csoundjs); // import the Csound method from csound.js
 	    csound = await Csound();// create a Csound engine object inside the context actx
