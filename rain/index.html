@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+    <title>tryout</title>
+  </head>
+  
+  <script type="text/javascript">
+    const csoundjs = "../js/csound.js";  // csound.js is the Csound WASM module
+    let csound = null;                   // csound is the Csound engine object (null as we start)
+    let isOn = false; // instrument on/off state
+    
+    const csd = './drip.csd' // CSD file name
+    async function start() {
+	if(csound == null) {
+	    const { Csound } = await import(csoundjs); // import the Csound method from csound.js
+	    csound = await Csound();// create a Csound engine object inside the context actx
+	    await copyUrlToLocal(csd,csd) // copy the CSD file to the Csound local filesystem
+	    await csound.compileCsd(csd) // compile the code in the CSD file
+	    await csound.start();// start the engine
+	    await note();
+	}
+    }
+    async function setNote(){
+	let s="i1 0 0.3";
+	console.log("s=",s);
+	await csound.inputMessage(s);
+	await note();
+	
+    }
+    async function note(){
+	let delay=Math.random()*2;
+	console.log("delay=",delay*1000);
+	await new Promise(resolve=>setTimeout(setNote,delay*1000));
+	await setNote();
+    }
+    async function copyUrlToLocal(src, dest) { // Copy file to local filesystem
+	let srcfile = await fetch(src) // fetch the file
+	let dat = await srcfile.arrayBuffer(); // get the file data as an array
+	await csound.fs.writeFile(dest, new Uint8Array(dat)); //as a new file in the filesystem
+    }
+    start();
+
+    
+    
+  </script>
+  <body>
+    <h1>TRYOUT</h1>
+  </body>
+</html>
