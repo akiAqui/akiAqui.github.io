@@ -1,8 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html> <head>
+<html>
+  <head>
     <title>あめのつぶ</title>
   </head>
   
+  
+  <body>
+    <h1>あめのつぶ</h1>
+    <button id="startButton">Start</button>
+
   <script type="text/javascript">
     let csound = null;                   // Csound engine object (null as we start)    
     async function start() {
@@ -37,7 +43,6 @@
 	await csound.fs.writeFile(dest, new Uint8Array(dat)); //as a new file in the filesystem
     }
 
-
     document.getElementById('startButton').addEventListener('click', async () => {
 	console.log('Starting Csound...');
 	try {
@@ -47,22 +52,8 @@
             console.error('Error starting Csound:', error);
 	}
     });
-
-
-
-
-
-
-    
-
-
-    
-    
   </script>
-  <body>
-    <h1>あめのつぶ</h1>
-    <button id="startButton">Start</button>
 
-    
   </body>
+  
 </html>
